@@ -1,13 +1,14 @@
 #!/bin/bash
+
 case "$1" in
     status)
         tc -s qdisc ls dev lo
         tc class show dev lo
         ;;
-    
+
     on)
         if [ -z "$2" ] ; then
-            echo "Usage: $0 on [#ms latency] [optional max Mbps]"  
+            echo "Usage: $0 on [#ms latency] [optional max Mbps]"
             exit 1
         fi
         if [ ! -z "$3" ] ; then
